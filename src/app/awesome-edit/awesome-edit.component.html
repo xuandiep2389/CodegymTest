@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light">
+  <a class="nav-link" routerLink="/">Về trang chủ</a>
+  <a class="nav-link" routerLink="/awesome-list">Awesome list</a>
+</nav>
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>
+      Tag
+    </label>
+    <br>
+    <input type="text" formControlName="tag">
+  </div>
+  <div>
+    <label>
+      Url
+    </label>
+    <br>
+    <input type="text" formControlName="url">
+  </div>
+  <div>
+    <label>
+      Descriptions
+    </label>
+    <br>
+    <textarea formControlName="descriptions" cols="30" rows="10"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>
