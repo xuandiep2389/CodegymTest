@@ -19,7 +19,6 @@ import { AwesomeEditComponent } from './awesome-edit/awesome-edit.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
