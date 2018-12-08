@@ -57,7 +57,7 @@ export class AwesomeEditComponent implements OnInit {
 
   deleteAwesome(awesome) {
     this.awesomeService.deleteAwesome(awesome.id).subscribe(() => {
-      this.awesomes = this.awesomes.filter(t => t.id !== awesome.id);
+      this.router.navigate(['awesome-list'])
     });
   }
 }
