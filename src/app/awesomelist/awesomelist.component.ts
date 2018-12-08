@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Awesome} from "../Awesome";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {AwesomeService} from "../awesome.service";
 
 @Component({
   selector: 'app-awesomelist',
@@ -7,9 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AwesomelistComponent implements OnInit {
 
-  constructor() { }
+  awesomes: Awesome[];
+  awesomeForm: FormGroup;
+
+  constructor(private awesomeService: AwesomeService, private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
+    this.awesomeForm = this.formBuilder.group({
+      tag: [''],
+      url: [''],
+      descriptions: ['']
+    });
+    this.awesomeService
+      .getAwesomes()
+      .subscribe(next => (this.awesomes = next), error => (this.awesomes = []));
   }
+
+  addAwesome() {
+    if (this.awesomeForm.valid) {
+      const {value} = this.awesomeForm;
+      this.awesomeService.addAwesome(value)
+        .subscribe(next => {
+          this.awesomes.unshift(next);
+          this.awesomeForm.reset({
+            name: ''
+          });
+        }, error => console.log(error));
+    }
+  }
+
+
+  deleteAwesome(i) {
+    const awesome = this.awesomes[i];
+    this.awesomeService.deleteAwesome(awesome.id).subscribe(() => {
+      this.awesomes = this.awesomes.filter(t => t.id !== awesome.id);
+    });
+  }
+
 
 }
