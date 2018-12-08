@@ -1,0 +1,23 @@
+  <nav class="navbar navbar-light">
+    <a class="nav-link" routerLink="/">Về trang chủ</a>
+    <a class="nav-link" routerLink="/awesome-list">Awesome list</a>
+  </nav>
+  <div class="container">
+    <h2>Create awesome</h2>
+    <hr>
+    <form [formGroup]="awesomeForm" (ngSubmit)="addAwesome()">
+      <div>
+        <input formControlName="tag" placeholder="Awesome tag">
+      </div>
+      <br>
+      <div>
+        <input formControlName="url" placeholder="Awesome url">
+      </div>
+      <br>
+      <div>
+        <textarea formControlName="descriptions" cols="30" rows="10"></textarea>
+      </div>
+      <br>
+      <button class="btn btn-info" type="submit">Add awesome</button>
+    </form>
+  </div>
