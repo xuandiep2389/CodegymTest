@@ -27,19 +27,6 @@ export class AwesomelistComponent implements OnInit {
       .subscribe(next => (this.awesomes = next), error => (this.awesomes = []));
   }
 
-  addAwesome() {
-    if (this.awesomeForm.valid) {
-      const {value} = this.awesomeForm;
-      this.awesomeService.addAwesome(value)
-        .subscribe(next => {
-          this.awesomes.unshift(next);
-          this.awesomeForm.reset({
-            name: ''
-          });
-        }, error => console.log(error));
-    }
-  }
-
 
   deleteAwesome(i) {
     const awesome = this.awesomes[i];

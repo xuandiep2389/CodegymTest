@@ -2,58 +2,48 @@
   <a class="nav-link" routerLink="/">Về trang chủ</a>
   <a class="nav-link" routerLink="/awesome-list">Awesome list</a>
 </nav>
-<h2>Awesome list</h2>
+<div class="container">
+  <h2>Awesome list</h2>
 
-<table class="table table-bordered">
-  <tr>
-    <td>
-      Tag
-    </td>
-    <td>
-      Url
-    </td>
-    <td>
-      Description
-    </td>
-    <td>
+  <table class="table table-bordered">
+    <tr>
+      <td>
+        Tag
+      </td>
+      <td>
+        Url
+      </td>
+      <td>
+        Description
+      </td>
+      <td>
 
-    </td>
-    <td>
+      </td>
+      <td>
 
-    </td>
-  </tr>
-  <tr *ngFor="let awesome of awesomes; index as i">
-    <td>
-      {{awesome.tag}}
-    </td>
-    <td>
-      {{awesome.url}}
-    </td>
-    <td>
-      {{awesome.descriptions}}
-    </td>
-    <td>
-      <a [routerLink]="['/awesome', awesome.id, 'edit']">Edit</a>
-    </td>
-    <td>
-      <button (click)="deleteAwesome(i)">Delete</button>
-    </td>
-  </tr>
-</table>
+      </td>
+    </tr>
+    <tr *ngFor="let awesome of awesomes; index as i">
+      <td>
+        {{awesome.tag}}
+      </td>
+      <td>
+        {{awesome.url}}
+      </td>
+      <td>
+        {{awesome.descriptions}}
+      </td>
+      <td>
+        <a class="btn btn-info" [routerLink]="['/awesome', awesome.id, 'edit']">Edit</a>
+      </td>
+      <td>
+        <button class="btn btn-info" (click)="deleteAwesome(i)">Delete</button>
+      </td>
+    </tr>
+  </table>
 
-<form [formGroup]="awesomeForm" (ngSubmit)="addAwesome()">
-  <div>
-    <input formControlName="tag" placeholder="Awesome tag">
-  </div>
-  <br>
-  <div>
-    <input formControlName="url" placeholder="Awesome url">
-  </div>
-  <br>
-  <div>
-    <input formControlName="descriptions" placeholder="Awesome description">
-  </div>
-  <br>
-  <button type="submit">Add awesome</button>
-</form>
+  <a routerLink="/create-awesome">Create awesome</a>
+
+</div>
+
 

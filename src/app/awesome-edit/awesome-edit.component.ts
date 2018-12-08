@@ -11,6 +11,7 @@ import {AwesomeService} from "../awesome.service";
 })
 export class AwesomeEditComponent implements OnInit {
   awesome: Awesome;
+  awesomes: Awesome[];
   editForm: FormGroup;
   constructor(
     private route: ActivatedRoute,
@@ -54,4 +55,9 @@ export class AwesomeEditComponent implements OnInit {
     }
   }
 
+  deleteAwesome(awesome) {
+    this.awesomeService.deleteAwesome(awesome.id).subscribe(() => {
+      this.awesomes = this.awesomes.filter(t => t.id !== awesome.id);
+    });
+  }
 }
