@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AwesomelistComponent } from './awesomelist/awesomelist.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { AwesomeEditComponent } from './awesome-edit/awesome-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AwesomelistComponent
+    AwesomelistComponent,
+    AwesomeEditComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,23 @@
 <h2>Awesome list</h2>
 
 <table class="table table-bordered">
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      Url
+    </td>
+    <td>
+      Description
+    </td>
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+  </tr>
   <tr *ngFor="let awesome of awesomes; index as i">
     <td>
       {{awesome.tag}}
@@ -14,6 +31,9 @@
     </td>
     <td>
       {{awesome.descriptions}}
+    </td>
+    <td>
+      <a [routerLink]="['/awesome', awesome.id, 'edit']">Edit</a>
     </td>
     <td>
       <button (click)="deleteAwesome(i)">Delete</button>
