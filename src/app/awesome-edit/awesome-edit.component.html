@@ -25,9 +25,15 @@
       <br>
       <textarea formControlName="descriptions" cols="30" rows="10"></textarea>
     </div>
-    <button class="btn btn-info" type="submit">Submit</button>
+    <table>
+      <tr>
+        <td><button class="btn btn-info" type="submit">Submit</button></td>
+
+        <td><button class="btn btn-info" (click)="deleteAwesome(awesome)">Delete</button></td>
+      </tr>
+    </table>
   </form>
   <br>
-  <button class="btn btn-info" (click)="deleteAwesome(awesome)">Delete</button>
+
 </div>
 
